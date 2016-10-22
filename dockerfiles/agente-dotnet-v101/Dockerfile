@@ -58,7 +58,7 @@ RUN useradd jenkins --shell /bin/bash -d ${JENKINS_HOME} --create-home \
 RUN wget -q https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${SWARM_CLIENT_VERSION}/swarm-client-${SWARM_CLIENT_VERSION}-jar-with-dependencies.jar -P /home/jenkins/
 RUN pip install docker-compose
 
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+COPY run2.sh /run2.sh
+RUN chmod +x /run2.sh
 
-CMD ["/run.sh"]
+CMD ["/run2.sh"]
