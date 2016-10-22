@@ -1,5 +1,5 @@
 FROM java:8-jdk
-#FROM docker:1.12.1
+#FROM docker:1.12.2
 #FROM debian:jessie
 
 MAINTAINER Emilio Montes <3miliomc@gmail.com>
@@ -57,6 +57,12 @@ RUN useradd jenkins --shell /bin/bash -d ${JENKINS_HOME} --create-home \
 
 RUN wget -q https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${SWARM_CLIENT_VERSION}/swarm-client-${SWARM_CLIENT_VERSION}-jar-with-dependencies.jar -P /home/jenkins/
 RUN pip install docker-compose
+
+#COPY docker-entrypoint.sh /usr/local/bin/
+
+#ENTRYPOINT ["docker-entrypoint.sh"]
+
+#CMD sh
 
 COPY run2.sh /run2.sh
 RUN chmod +x /run2.sh
